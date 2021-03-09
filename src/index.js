@@ -1,6 +1,13 @@
 import * as Vue from 'vue'
+
+import router from './router/index'
+import store from './store/index'
+
 import Index from './pages/index.jsx'
 
-const app = Vue.createApp(Index)
+const app = Vue.createApp(Index);
 
-app.mount('#app')
+app.use(router);
+app.use(store);
+
+app.mount('#app');

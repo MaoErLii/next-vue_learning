@@ -1,4 +1,5 @@
-import Test from '../components/Test/index.jsx'
+import { RouterView } from 'vue-router'
+// import Test from '../components/Test/index.jsx'
 
 const Index = {
     data() {
@@ -15,23 +16,29 @@ const Index = {
             this.name = names[this.name]
         }
     },
+    
 
     created() {
-        console.log('created 阶段')
+        // console.log('created 阶段', this.$store.state.home.suki)
     },
 
     mounted() {
-        console.log('mounted 阶段');
+        // console.log('mounted 阶段', this);
+    },
+
+    updated() {
+        // console.log('组件更新', this.name)
     },
     
     render() {
         return (
             <div>
-                <h1>{this.name}</h1>
+                {/* <h1>{this.name}</h1>
                 <Test value={this.counter}></Test>
                 <button onClick={() => this.changeName()}>
                     明日香suki
-                </button>
+                </button> */}
+                <RouterView></RouterView>
             </div>
         )
     }
