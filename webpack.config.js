@@ -6,6 +6,7 @@ module.exports = {
     entry: path.join(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, './dist'),
+        publicPath: '/',
         filename: '[name]._bundle.js',
     },
     module: {
@@ -22,7 +23,7 @@ module.exports = {
     },
     plugins:[new HtmlWebpackPlugin({template: path.join(__dirname, 'public/index.html')})],
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        publicPath: '/',
         compress: true,
         historyApiFallback: true,
         port: 8080
