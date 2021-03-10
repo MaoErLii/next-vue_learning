@@ -14,11 +14,11 @@ const Home = {
         }
 
         function changeNameByMutation() {
-            store.commit('hahaha', 'mutation入参')
+            store.commit('home/hahaha', 'mutation入参')
         }
 
         function changeNameByAction() {
-            store.dispatch('asyncHahaha', 'action入参')
+            store.dispatch('home/asyncHahaha', 'action入参')
         }
 
         return () => (
