@@ -1,4 +1,5 @@
 export default {
+    namespace: true,
     state: {
         name: '香香',
         suki: {
@@ -8,13 +9,13 @@ export default {
     },
     mutations: {
         hahaha (state, payload) {
-            console.log('mutation', payload);
+            payload && console.log('mutation', payload);
             state.name = state.suki[state.name]
         }
     },
     actions: {
         asyncHahaha ({commit}, payload) {
-            console.log('action', payload);
+            payload && console.log('action', payload);
             commit('hahaha')
         }
     }
