@@ -1,12 +1,13 @@
 import { onMounted } from "vue"
+import { RouterLink, useRouter } from "vue-router";
 import { useStore } from 'vuex'
 
 const Home = {
     setup() {
         const store =useStore();
+        const router = useRouter();
         
         onMounted(() => {
-            console.log(store)
         })
 
         function getName() {
@@ -21,17 +22,31 @@ const Home = {
             store.dispatch('home/asyncHahaha', 'action入参')
         }
 
+        function jumpToTest() {
+            router.push('/test')
+        }
+
         return () => (
-            <div>
-                <p>home sweet home</p>
-                <p>{getName()}</p>
-                <button onClick={() => {changeNameByMutation()}}>
-                    changeNameByMutation
-                </button>
-                <button onClick={() => {changeNameByAction()}}>
-                    changeNameByAction
-                </button>
-            </div>
+            <>
+                <div>
+                    <p>home sweet home</p>
+                    <p>{getName()}</p>
+                    <button onClick={_ => changeNameByMutation()}>
+                        changeNameByMutation
+                    </button>
+                    <button onClick={_ => changeNameByAction()}>
+                        changeNameByAction
+                    </button>
+                </div>
+                <div>
+                    <p>路由</p>
+                    <button onClick={_=>jumpToTest()}>到test页</button>
+                    <br></br>
+                    <RouterLink to="/test">
+                        routerLink组件
+                    </RouterLink>
+                </div>
+            </>
         )
     }
 }
